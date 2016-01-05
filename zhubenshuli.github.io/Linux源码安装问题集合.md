@@ -1,0 +1,26 @@
+## Linux 源码安装问题集锦
+
+### 编译参数缺少`-lncurses`
+在安装`Lua`时，`make linux`报下面错误：
+```
+gcc -std=gnu99 -o lua   lua.o liblua.a -lm -Wl,-E -ldl -lreadline
+//usr/local/lib/libreadline.so: undefined reference to `tputs'
+//usr/local/lib/libreadline.so: undefined reference to `tgoto'
+//usr/local/lib/libreadline.so: undefined reference to `tgetflag'
+//usr/local/lib/libreadline.so: undefined reference to `UP'
+//usr/local/lib/libreadline.so: undefined reference to `tgetent'
+//usr/local/lib/libreadline.so: undefined reference to `tgetnum'
+//usr/local/lib/libreadline.so: undefined reference to `PC'
+//usr/local/lib/libreadline.so: undefined reference to `tgetstr'
+//usr/local/lib/libreadline.so: undefined reference to `BC'
+collect2: ld returned 1 exit status
+Makefile:63: recipe for target 'lua' failed
+make[2]: *** [lua] Error 1
+make[2]: Leaving directory '/home/zhubenshuli/lua-5.3.1/src'
+Makefile:110: recipe for target 'linux' failed
+make[1]: *** [linux] Error 2
+make[1]: Leaving directory '/home/zhubenshuli/lua-5.3.1/src'
+Makefile:55: recipe for target 'linux' failed
+make: *** [linux] Error 2
+```
+解决方案：编译时`make linux MYLIBS=-lncurses`

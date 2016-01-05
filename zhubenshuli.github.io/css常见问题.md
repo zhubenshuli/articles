@@ -1,0 +1,37 @@
+title: css常用填坑代码
+date: 2015-02-21 21:15:00
+categories: 文档教程
+tags: [css]
+description: css常用填坑代码...
+---
+
+记录自己平常经常使用的css语法
+
+<!--more-->
+
+### 文字换行
+```
+/*强制不换行*/
+white-space:nowrap;
+/*自动换行*/
+word-wrap: break-word;
+word-break: normal;
+/*强制英文单词断行*/
+word-break:break-all;
+```
+
+### 去掉Webkit(chrome)浏览器中input(文本框)或textarea的黄色焦点框
+```
+input,button,select,textarea{ outline:none;}
+textarea{ font-size:13px; resize:none;}
+```
+
+### 省略号
+```
+white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+```
+
+### 投影
+```
+box-shadow:inset 1px -1px 0 #f1f1f1;text-shadow:1px 1px 0px #630;
+```

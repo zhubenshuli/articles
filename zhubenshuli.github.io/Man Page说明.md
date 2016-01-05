@@ -1,0 +1,18 @@
+## Man Page
+
+`Man Page`是`Linux`开发最常用的参考手册，由很多页面组成，每个页面描述一个主题，这些页面被组织成若干个`Section`。`FHS（Filesystem Hierarchy Standard）`标准规定了`Man Page`各`Section`的含义如下：
+
+| Section |                     描述                                            |
+|---------|---------------------------------------------------------------------|
+| 1       | 用户命令，例如ls(1)                                                 |
+| 2       | 系统调用，例如_exit(2)                                              |
+| 3       | 库函数，例如printf(3)                                               |
+| 4       | 特殊文件，例如null(4)描述了设备文件/dev/null、/dev/zero的作用       |
+| 5       | 系统配置文件的格式，例如passwd(5)描述了系统配置文件/etc/passwd的格式| 
+| 6       | 游戏                                                                |
+| 7       | 其它杂项，例如bash-builtins(7)描述了bash的各种内建命令              |
+| 8       | 系统管理命令，例如ifconfig(8)                                       |
+
+注意区分用户命令和系统管理命令，用户命令通常位于`/bin`和`/usr/bin`目录，系统管理命令通常位于`/sbin`和`/usr/sbin`目录，一般用户可以执行用户命令，而执行系统管理命令经常需要`root`权限。
+
+`Man Page`中有些页面有重名，比如敲`man printf`命令看到的并不是C函数`printf`，而是位于第1个`Section`的系统命令`printf`，要查看位于第3个`Section`的`printf`函数应该敲`man 3 printf`，也可以敲`man -k printf`命令搜索哪些页面的主题包含`printf`关键字。
