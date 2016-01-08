@@ -5,11 +5,11 @@ tags: [php]
 description: php无限极分类...
 ---
 
-在php中巧妙使用**引用**来做无限极分类生成数
+在php中巧妙使用**引用**来做无限极分类生成树，并且使用压栈的方式来遍历
 
 <!-- more -->
 
-## 二维数组多字段排序
+## 无限极分类
 
 代码：
 ```
@@ -31,7 +31,8 @@ $items = array(
     4 => array('id' => 4, 'pid' => 3, 'name' => '长丰县'),
     5 => array('id' => 5, 'pid' => 1, 'name' => '安庆市'),
 );
-print_r(generateTree($items));
+$tree = generateTree($items);
+print_r($tree);
 ```
 打印结果：
 ```
@@ -75,4 +76,29 @@ Array
         )
 
 )
+```
+
+## 遍历无限极分类数组
+```
+// 用压栈的方式遍历数组，非递归方法
+foreach ( $tree as $k => $v ) {
+    
+    // 给栈赋予第1条数据
+    $list[0] = $v;
+    
+    // 只要栈$list 不为空，就一直遍历
+    while ( !empty( $list ) ) {
+        
+        // 取出并删除栈顶部的1条数据
+        $one = array_shift( $list );
+        
+        // 打印取出的那条数据
+        echo ' name: ' , $one['name'] , ' <br>';
+
+        // 如果取出的那条数据有子节点, 把子节点合并、存入到栈list中去
+        if ( isset( $one['son'] ) ) {
+            $list = array_merge( $list , $one['son'] );    
+        }
+    } 
+}
 ```
