@@ -1,6 +1,15 @@
-## docker简明教程
+title: docker简明教程
+date: 2016-08-05 19:37:00
+categories: 文档教程
+tags: [docker]
+description: docker简明教程...
+---
 
-### 常用命令
+记录自己平常经常使用的docker命令...
+
+<!--more-->
+
+## 常用命令
 1. 查看正在运行的容器
     `docker ps -a`
 

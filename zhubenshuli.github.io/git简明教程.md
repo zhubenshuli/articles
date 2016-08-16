@@ -1,15 +1,27 @@
-## git简明教程
+title: git简明教程
+date: 2016-04-05 13:27:00
+categories: 文档教程
+tags: [git]
+description: git简明教程...
+---
 
-### 用户配置
+记录自己平常经常使用的git命令等...
+
+<!--more-->
+
+## 用户配置
+```
 git config --global user.name "xuqingdi"
 git config --global user.email zhubenshuli@gmail.com
+```
 
-
+```
 git config --global core.ignorecase false   // 大小写敏感
 git config --global core.autocrlf false     // 不做 lf crlf 转换：
 git config --global core.safecrlf true      // 在提交时检查发现混用 lf crlf 则拒绝提交
+```
 
-### 常用命令
+## 常用命令
 1. 初始化或者克隆
     `git init`
     `git clone url`
@@ -50,6 +62,6 @@ git config --global core.safecrlf true      // 在提交时检查发现混用 lf
     `git remote remove origin`
     `git remote add origin ssh://...`
 
-### 备注
+## 备注
 1.ssh 每次push/pull需要输入密码
     将自己的私钥文件取消密码（软件：puttygen）
