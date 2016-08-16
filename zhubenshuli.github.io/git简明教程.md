@@ -19,6 +19,7 @@ git config --global user.email zhubenshuli@gmail.com
 git config --global core.ignorecase false   // 大小写敏感
 git config --global core.autocrlf false     // 不做 lf crlf 转换：
 git config --global core.safecrlf true      // 在提交时检查发现混用 lf crlf 则拒绝提交
+git config --global core.quotepath false    // 不会对0x80以上的字符进行quote。中文文件名显示正常
 ```
 
 ## 常用命令
